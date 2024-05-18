@@ -13,6 +13,20 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isLoading = false;
   List<ModelGallery> imageList = [];
 
+  mySnackBar(message, context) {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        action: SnackBarAction(
+          label: 'Reload',
+          onPressed: () async {
+            fetchImages();
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   void initState() {
     fetchImages();
@@ -60,9 +74,12 @@ class _HomeScreenState extends State<HomeScreen> {
       _isLoading = true;
     });
 
-    final response = await GalleryApi.fetchUsers();
-    imageList = response;
-
+    var response = await GalleryApi.fetchUsers();
+    if (response.isNotEmpty) {
+      imageList = response;
+    } else {
+      mySnackBar("Failed to fetch gallery data", context);
+    }
     setState(() {
       _isLoading = false;
     });

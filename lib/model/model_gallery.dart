@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
 
 class ModelGallery {
   final int? albumId;
@@ -27,20 +28,27 @@ class ModelGallery {
   }
 }
 
-class GalleryApi{
+class GalleryApi {
   static Future<List<ModelGallery>> fetchUsers() async {
     const url = 'https://jsonplaceholder.typicode.com/photos';
     final uri = Uri.parse(url);
-    final response = await http.get(uri);
 
-    final body = response.body;
-    final json = jsonDecode(body);
-    final result = json as List<dynamic>;
+    try {
+      final response = await http.get(uri);
+      if (response.statusCode != 200) {
+        print(
+            'Failed to fetch gallery data. Status code: ${response.statusCode}');
+      }
 
-    final resultTransformed = result.map((e){
-      return ModelGallery.fromJson(e);
-    }).toList();
-
-    return resultTransformed;
+      final body = response.body;
+      final json = jsonDecode(body);
+      final result = json as List<dynamic>;
+      final resultTransformed =
+          result.map((e) => ModelGallery.fromJson(e)).toList();
+      return resultTransformed;
+    } catch (e) {
+      print('Failed to fetch gallery data. Status code: ${e.toString()}');
+      return [];
+    }
   }
 }
