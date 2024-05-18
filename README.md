@@ -1,16 +1,32 @@
-# photo_gallery_app
+<h1 align="center">Photo Gallery</h1>
 
-photo gallery with call api
+<table align="center">
+    <tr>
+        <th>Home Page</th>
+        <th>Details Page</th>
+    </tr>
+    <tr>
+        <td><img width="200"
+                src="https://raw.githubusercontent.com/atikhossainbd/files/main/module12-assignment/Home%20Page.png"
+                alt="Home Page">
+        </td>
+        <td><img width="200"
+                src="https://raw.githubusercontent.com/atikhossainbd/files/main/module12-assignment/Details%20Page.png"
+                alt="Details Page"></td>
+    </tr>
+</table>
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+<table align="center">
+    <tr>
+        <th>Landscape (Responsive View)</th>
+    </tr>
+    <tr>
+        <td><img width="425"
+                src="https://raw.githubusercontent.com/atikhossainbd/files/main/module12-assignment/Landscape%20For%20Responsive.png"
+                alt="Home Page">
+        </td>
+    </tr>
+</table>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h1 align="center">Thank You ❤️</h1>
